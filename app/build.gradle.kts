@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.sdevprem.runtrack"
+    namespace = "ues"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.sdevprem.runtrack"
+        applicationId = "ues"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
