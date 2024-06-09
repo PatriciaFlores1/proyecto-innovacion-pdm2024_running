@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -158,27 +159,34 @@ private fun OnBoardScreenContent(
 private fun OnBoardingScreenHeader(
     modifier: Modifier = Modifier
 ) {
-    Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        Icon(
-            imageVector = ImageVector.vectorResource(id = R.drawable.ic_run),
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.primary,
-            modifier = Modifier
-                .size(64.dp)
-        )
-        Text(
-            text = "Welcome",
-            style = MaterialTheme.typography.displayMedium,
-            color = MaterialTheme.colorScheme.primary,
-        )
-        Text(
-            text = "Let's run together",
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.secondary,
-        )
+    Box(
+        modifier = modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    )
+     {
+         Column(
+             verticalArrangement = Arrangement.Center,
+             horizontalAlignment = Alignment.CenterHorizontally
+         )
+         {
+             Icon(
+                 imageVector = ImageVector.vectorResource(id = R.drawable.baseline_run_circle_24),
+                 contentDescription = null,
+                 tint = MaterialTheme.colorScheme.primary,
+                 modifier = Modifier
+                     .size(80.dp)
+             )
+             Text(
+                 text = "RUNNING APP",
+                 style = MaterialTheme.typography.displayMedium,
+                 color = MaterialTheme.colorScheme.primary,
+             )
+             Text(
+                 text = "Inicio de sesión",
+                 style = MaterialTheme.typography.bodyLarge,
+                 color = MaterialTheme.colorScheme.secondary,
+             )
+         }
     }
 }
 
@@ -196,7 +204,7 @@ private fun SecondPage(
     OutlinedTextField(
         value = if (weightInKg > 0) weightInKg.toString() else "",
         onValueChange = { if (it.isNotBlank()) onWeightChange(it.toFloat()) },
-        label = { Text(text = "Weight") },
+        label = { Text(text = "Ingresa tu peso") },
         modifier = Modifier.fillMaxWidth(),
         keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Number
@@ -209,7 +217,7 @@ private fun SecondPage(
     OutlinedTextField(
         value = if (weeklyGoal > 0) weeklyGoal.toString() else "",
         onValueChange = { if (it.isNotBlank()) onWeeklyGoalChange(it.toFloat()) },
-        label = { Text(text = "Weekly target") },
+        label = { Text(text = "Ingresa tu objetivo semanal") },
         modifier = Modifier.fillMaxWidth(),
         keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Number
@@ -233,7 +241,7 @@ private fun FirstPage(
             value = name,
             onValueChange = onNameChange,
             label = {
-                Text(text = "Name")
+                Text(text = "Nombre del usuario")
             },
             modifier = Modifier.fillMaxWidth()
         )
@@ -284,11 +292,11 @@ private fun GenderCard(
             Icon(
                 imageVector = ImageVector.vectorResource(
                     id = when (cardGender) {
-                        Gender.MALE -> R.drawable.ic_male
-                        Gender.FEMALE -> R.drawable.ic_female
+                        Gender.MALE -> R.drawable.baseline_woman_24
+                        Gender.FEMALE -> R.drawable.baseline_man_24
                     }
                 ),
-                contentDescription = "Female",
+                contentDescription = "Sexo",
                 modifier = Modifier
                     .padding(24.dp),
                 tint = getGenderCardColor(isSelected = isSelected)
@@ -301,7 +309,7 @@ private fun GenderCard(
 private fun getGenderCardColor(isSelected: Boolean) =
     if (isSelected)
         MaterialTheme.colorScheme.primary
-    else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
+    else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f)
 
 @Composable
 @Preview(showBackground = true)
@@ -311,7 +319,7 @@ private fun BottomItem(
     selectedPage: Int = 0,
     isLast: Boolean = false
 ) {
-    val containerColor = MaterialTheme.colorScheme.primary
+    val containerColor = MaterialTheme.colorScheme.onBackground
     val contentColor = MaterialTheme.colorScheme.onPrimary
     Box(
         modifier = Modifier
@@ -337,7 +345,7 @@ private fun BottomItem(
             ) {
                 Icon(
                     imageVector = ImageVector.vectorResource(id = R.drawable.ic_arrow_backward),
-                    contentDescription = "back",
+                    contentDescription = "Regresar",
                     modifier = Modifier
                         .size(16.dp)
                 )
@@ -357,7 +365,7 @@ private fun BottomItem(
         ) {
             AnimatedVisibility(visible = isLast) {
                 Text(
-                    text = "Get Started",
+                    text = "Entrar",
                     style = MaterialTheme.typography.labelLarge,
                     color = contentColor,
                     fontWeight = FontWeight.Medium,
@@ -368,7 +376,7 @@ private fun BottomItem(
             }
             Icon(
                 imageVector = ImageVector.vectorResource(id = R.drawable.ic_arrow_forward),
-                contentDescription = "next",
+                contentDescription = "Siguiente",
                 tint = contentColor,
                 modifier = Modifier
                     .size(16.dp)

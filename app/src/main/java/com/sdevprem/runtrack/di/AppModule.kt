@@ -37,7 +37,7 @@ abstract class AppModule {
 
     companion object {
 
-        private const val USER_PREFERENCES_FILE_NAME = "user_preferences"
+        private const val USER_PREFERENCES_FILE_NAME = "usuario_preferencias"
 
         @Singleton
         @Provides

@@ -46,7 +46,7 @@ class TrackingManager @Inject constructor(
             if (isTracking) {
                 result.locations.forEach { location ->
                     addPathPoints(location)
-                    Timber.d("New LocationPoint : ${location.latitude}, ${location.longitude}")
+                    Timber.d("Nuevo punto de localización : ${location.latitude}, ${location.longitude}")
                 }
             }
         }

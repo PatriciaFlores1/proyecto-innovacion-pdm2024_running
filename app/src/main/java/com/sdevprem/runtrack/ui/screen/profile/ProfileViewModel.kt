@@ -56,7 +56,7 @@ class ProfileViewModel @Inject constructor(
 
     override fun saveUser() {
         if (_profileScreenState.value.user.name.isBlank()) {
-            _profileScreenState.update { it.copy(errorMsg = "Name can't be empty") }
+            _profileScreenState.update { it.copy(errorMsg = "El nombre no puede estar vacío") }
             return
         }
         viewModelScope.launch {

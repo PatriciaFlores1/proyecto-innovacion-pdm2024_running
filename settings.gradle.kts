@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "RunTrack"
+rootProject.name = "Running"
 include(":app")

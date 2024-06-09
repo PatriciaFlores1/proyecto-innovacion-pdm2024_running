@@ -5,7 +5,7 @@ import androidx.navigation.navDeepLink
 
 sealed class Destination(val route: String) {
 
-    object OnBoardingDestination : Destination("on_boarding") {
+    object OnBoardingDestination : Destination("Icorporarme") {
         fun navigateToHome(navController: NavController) {
             navController.navigate(BottomNavDestination.Home.route) {
                 popUpTo(route) {
@@ -16,7 +16,7 @@ sealed class Destination(val route: String) {
         }
     }
 
-    object CurrentRun : Destination("current_run") {
+    object CurrentRun : Destination("Carrera actual") {
         val currentRunUriPattern = "https://runtrack.sdevprem.com/$route"
         val deepLinks = listOf(
             navDeepLink {
@@ -25,7 +25,7 @@ sealed class Destination(val route: String) {
         )
     }
 
-    data object RunStats : Destination("run_stats")
+    data object RunStats : Destination("Estadística de carreras")
 
     //global navigation
     companion object {

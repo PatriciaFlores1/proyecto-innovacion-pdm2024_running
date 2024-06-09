@@ -108,14 +108,14 @@ private fun RunImage(
     Box(
         modifier = modifier,
     ) {
-        Image(
-            bitmap = run.img.asImageBitmap(),
-            contentDescription = null,
-            modifier = Modifier
-                .fillMaxWidth()
-                .aspectRatio(1f),
-            contentScale = ContentScale.Crop,
-        )
+//        Image(
+//            bitmap = run.img.asImageBitmap(),
+//            contentDescription = null,
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .aspectRatio(1f),
+//            contentScale = ContentScale.Crop,
+//        )
 
         IconButton(
             onClick = onDismiss,
@@ -133,42 +133,42 @@ private fun RunImage(
         }
         Row(
             modifier = Modifier
-                .align(Alignment.TopEnd)
+                .align(Alignment.CenterEnd)
                 .padding(end = 8.dp, top = 8.dp)
         ) {
             IconButton(
                 onClick = { onDelete(run) },
                 modifier = Modifier
                     .background(
-                        color = MaterialTheme.colorScheme.errorContainer,
+                        color = MaterialTheme.colorScheme.onBackground,
                         shape = MaterialTheme.shapes.small
                     )
             ) {
                 Icon(
                     imageVector = Icons.Default.Delete,
-                    contentDescription = "delete run info",
+                    contentDescription = "Borrar tu información",
                     modifier = Modifier,
-                    tint = MaterialTheme.colorScheme.onErrorContainer
+                    tint = MaterialTheme.colorScheme.background
                 )
 
             }
-            Spacer(modifier = Modifier.size(4.dp))
-            IconButton(
-                onClick = { },
-                modifier = Modifier
-                    .background(
-                        color = MaterialTheme.colorScheme.secondaryContainer,
-                        shape = MaterialTheme.shapes.small
-                    )
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Share,
-                    contentDescription = "share run info",
-                    modifier = Modifier,
-                    tint = MaterialTheme.colorScheme.onSecondaryContainer
-                )
-
-            }
+//            Spacer(modifier = Modifier.size(4.dp))
+//            IconButton(
+//                onClick = { },
+//                modifier = Modifier
+//                    .background(
+//                        color = MaterialTheme.colorScheme.secondaryContainer,
+//                        shape = MaterialTheme.shapes.small
+//                    )
+//            ) {
+//                Icon(
+//                    imageVector = Icons.Default.Share,
+//                    contentDescription = "share run info",
+//                    modifier = Modifier,
+//                    tint = MaterialTheme.colorScheme.onSecondaryContainer
+//                )
+//
+//            }
         }
     }
 }
@@ -188,39 +188,39 @@ private fun RunStats(
     ) {
         RunningStatsItem(
             modifier = Modifier,
-            painter = painterResource(id = R.drawable.running_boy),
+            painter = painterResource(id = R.drawable.running_man),
             unit = "km",
             value = (run.distanceInMeters / 1000f).toString()
         )
         Box(
             modifier = Modifier
-                .width(1.dp)
+                .width(0.5.dp)
                 .fillMaxHeight()
-                .padding(vertical = 8.dp)
+                .padding(vertical = 0.dp)
                 .align(Alignment.CenterVertically)
                 .background(
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(blue = 0.5f),
                 )
         )
         RunningStatsItem(
             modifier = Modifier,
-            painter = painterResource(id = R.drawable.fire),
+            painter = painterResource(id = R.drawable.fuego_icono),
             unit = "kcal",
             value = run.caloriesBurned.toString()
         )
         Box(
             modifier = Modifier
-                .width(1.dp)
+                .width(0.5.dp)
                 .fillMaxHeight()
-                .padding(vertical = 8.dp)
+                .padding(vertical = 0.dp)
                 .align(Alignment.CenterVertically)
                 .background(
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(blue = 0.5f),
                 )
         )
         RunningStatsItem(
             modifier = Modifier,
-            painter = painterResource(id = R.drawable.bolt),
+            painter = painterResource(id = R.drawable.bolt_icono),
             unit = "km/hr",
             value = run.avgSpeedInKMH.toString()
         )

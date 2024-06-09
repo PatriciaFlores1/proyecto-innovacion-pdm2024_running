@@ -247,14 +247,14 @@ private fun DrawPathPoints(
             color = md_theme_light_primary
         )
 
-    val infiniteTransition = rememberInfiniteTransition()
+    val infiniteTransition = rememberInfiniteTransition(label = "")
     val lastMarkerPointColor by infiniteTransition.animateColor(
         initialValue = md_theme_light_primary,
         targetValue = md_theme_light_primary.copy(alpha = 0.8f),
         animationSpec = infiniteRepeatable(
             tween(1000),
             repeatMode = RepeatMode.Reverse
-        )
+        ), label = ""
     )
 
     Marker(
@@ -374,7 +374,7 @@ private fun RunningCard(
         ) {
             RunningStatsItem(
                 modifier = Modifier,
-                painter = painterResource(id = R.drawable.running_boy),
+                painter = painterResource(id = R.drawable.running_man),
                 unit = "km",
                 value = (runState.currentRunState.distanceInMeters / 1000f).toString()
             )
@@ -382,15 +382,15 @@ private fun RunningCard(
                 modifier = Modifier
                     .width(1.dp)
                     .fillMaxHeight()
-                    .padding(vertical = 8.dp)
+                    .padding(vertical = 0.dp)
                     .align(Alignment.CenterVertically)
                     .background(
-                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(blue = 0.5f),
                     )
             )
             RunningStatsItem(
                 modifier = Modifier,
-                painter = painterResource(id = R.drawable.fire),
+                painter = painterResource(id = R.drawable.fuego_icono),
                 unit = "kcal",
                 value = runState.caloriesBurnt.toString()
             )
@@ -398,15 +398,15 @@ private fun RunningCard(
                 modifier = Modifier
                     .width(1.dp)
                     .fillMaxHeight()
-                    .padding(vertical = 8.dp)
+                    .padding(vertical = 0.dp)
                     .align(Alignment.CenterVertically)
                     .background(
-                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(blue = 0.5f),
                     )
             )
             RunningStatsItem(
                 modifier = Modifier,
-                painter = painterResource(id = R.drawable.bolt),
+                painter = painterResource(id = R.drawable.bolt_icono),
                 unit = "km/hr",
                 value = runState.currentRunState.speedInKMH.toString()
             )
@@ -426,7 +426,7 @@ private fun RunningCardTime(
     Row(modifier = modifier.fillMaxWidth()) {
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = "Running Time",
+                text = "Tiempo en el que ha corrido",
                 style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Normal),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -442,7 +442,7 @@ private fun RunningCardTime(
                 modifier = Modifier
                     .size(40.dp)
                     .background(
-                        color = MaterialTheme.colorScheme.error,
+                        color = MaterialTheme.colorScheme.onBackground,
                         shape = MaterialTheme.shapes.medium
                     )
                     .align(Alignment.CenterVertically)
@@ -464,7 +464,7 @@ private fun RunningCardTime(
             modifier = Modifier
                 .size(40.dp)
                 .background(
-                    color = MaterialTheme.colorScheme.primary,
+                    color = MaterialTheme.colorScheme.onBackground,
                     shape = MaterialTheme.shapes.medium
                 )
                 .align(Alignment.CenterVertically)

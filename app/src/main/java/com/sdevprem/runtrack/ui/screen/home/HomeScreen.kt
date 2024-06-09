@@ -125,6 +125,15 @@ fun HomeScreenContent(
             distanceCoveredInCurrentWeekInKm = state.distanceCoveredInKmInThisWeek,
             onWeeklyGoalClick = navigateToRunStats
         )
+
+        Spacer(modifier = Modifier.size(15.dp)) // Añadir un espacio entre el TopBar y WeeklyGoalCard
+
+        WeeklyGoalCard(
+            weeklyGoalInKm = state.user.weeklyGoalInKM.roundToInt(),
+            weeklyGoalDoneInKm = state.distanceCoveredInKmInThisWeek,
+            onClick = navigateToRunStats
+        )
+
         if (durationInMillis > 0)
             CurrentRunningCard(
                 modifier = Modifier
@@ -140,7 +149,7 @@ fun HomeScreenContent(
                 .padding(vertical = 28.dp, horizontal = 24.dp)
         ) {
             Text(
-                text = "Recent Activity",
+                text = "Tus actividades recientes",
                 style = MaterialTheme.typography.labelLarge.copy(
                     color = MaterialTheme.colorScheme.onSurface
                 ),
@@ -148,7 +157,7 @@ fun HomeScreenContent(
                     .weight(1f)
             )
             Text(
-                text = "All",
+                text = "ver",
                 style = MaterialTheme.typography.bodyMedium.copy(
                     color = MaterialTheme.colorScheme.primary
                 ),
@@ -235,46 +244,20 @@ private fun EmptyRunListView(
     Column(
         modifier = modifier
             .padding(16.dp)
-            .fillMaxHeight(),
+            .fillMaxHeight()
+            .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.size(16.dp))
         Icon(
-            imageVector = ImageVector.vectorResource(id = R.drawable.ic_calendar),
+            imageVector = ImageVector.vectorResource(id = R.drawable.baseline_directions_run_24),
             contentDescription = null,
             modifier = Modifier
-                .size(80.dp),
+                .size(250.dp),
             tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
         )
         Spacer(modifier = Modifier.size(16.dp))
-        val inlineContentMap = mapOf(
-            "run_icon_img" to InlineTextContent(
-                placeholder = Placeholder(
-                    MaterialTheme.typography.bodyLarge.fontSize,
-                    MaterialTheme.typography.bodyLarge.fontSize,
-                    PlaceholderVerticalAlign.TextCenter
-                )
-            ) {
-                Image(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_run),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .alpha(0.5f)
-                )
-            }
-        )
-        Text(
-            text = buildAnnotatedString {
-                append("Its seems like we don't have any records. Record you run by clicking on the ")
-                appendInlineContent(id = "run_icon_img")
-                append(" button")
-            },
-            inlineContent = inlineContentMap,
-            style = MaterialTheme.typography.bodyLarge,
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
-        )
     }
 }
 
@@ -307,7 +290,7 @@ private fun CurrentRunningCard(
                 ),
         ) {
             Image(
-                painter = painterResource(id = R.drawable.running_boy),
+                painter = painterResource(id = R.drawable.running_man),
                 contentDescription = null,
                 modifier = Modifier
                     .size(40.dp)
@@ -320,7 +303,7 @@ private fun CurrentRunningCard(
                 .weight(1f)
         ) {
             Text(
-                text = "Current Session",
+                text = "Sesión en curso",
                 style = MaterialTheme.typography.labelMedium.copy(
                     color = MaterialTheme.colorScheme.onPrimary
                 )
@@ -380,12 +363,12 @@ private fun TopBar(
                 modifier = Modifier.background(color = Color.Transparent),
                 user = user
             )
-            Spacer(modifier = Modifier.size(32.dp))
-            WeeklyGoalCard(
-                weeklyGoalInKm = weeklyGoalInKm.roundToInt(),
-                weeklyGoalDoneInKm = distanceCoveredInCurrentWeekInKm,
-                onClick = onWeeklyGoalClick
-            )
+            Spacer(modifier = Modifier.size(50.dp))
+//            WeeklyGoalCard(
+//                weeklyGoalInKm = weeklyGoalInKm.roundToInt(),
+//                weeklyGoalDoneInKm = distanceCoveredInCurrentWeekInKm,
+//                onClick = onWeeklyGoalClick
+//            )
         }
     }
 
@@ -412,7 +395,7 @@ private fun TopBarProfile(
 
         Text(
             text = buildAnnotatedString {
-                append("Hello, ")
+                append("Hola Bienvenid@, ")
                 withStyle(
                     style = SpanStyle(fontWeight = FontWeight.SemiBold),
                 ) {
@@ -431,11 +414,11 @@ private fun TopBarProfile(
             modifier = Modifier
                 .size(24.dp)
         ) {
-            Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_settings),
-                contentDescription = "Settings",
-                tint = MaterialTheme.colorScheme.onPrimary
-            )
+//            Icon(
+//                imageVector = ImageVector.vectorResource(id = R.drawable.ic_settings),
+//                contentDescription = "Settings",
+//                tint = MaterialTheme.colorScheme.onPrimary
+//            )
         }
 
     }
@@ -459,7 +442,7 @@ private fun WeeklyGoalCard(
                 .padding(24.dp)
         ) {
             Text(
-                text = "Weekly Goal",
+                text = "Objetivos de la semana :)",
                 style = MaterialTheme.typography.labelLarge.copy(
                     color = MaterialTheme.colorScheme.onSurface,
                     fontWeight = FontWeight.SemiBold
@@ -477,7 +460,7 @@ private fun WeeklyGoalCard(
             )
             Icon(
                 imageVector = ImageVector.vectorResource(id = R.drawable.ic_arrow_forward),
-                contentDescription = "More info",
+                contentDescription = "Más info",
                 modifier = Modifier
                     .size(16.dp)
                     .align(Alignment.CenterVertically),
@@ -495,7 +478,7 @@ private fun WeeklyGoalCard(
                     .fillMaxWidth()
             ) {
                 Text(
-                    text = "$weeklyGoalDoneInKm km done",
+                    text = "$weeklyGoalDoneInKm km terminados",
                     modifier = Modifier
                         .weight(1f),
                     style = MaterialTheme.typography.bodySmall.copy(
@@ -508,7 +491,7 @@ private fun WeeklyGoalCard(
                             0f,
                             weeklyGoalInKm.toFloat()
                         )
-                    } km left",
+                    } km a la izquierda",
                     style = MaterialTheme.typography.bodySmall.copy(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )

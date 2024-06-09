@@ -109,13 +109,13 @@ private fun ScreenTopAppBar(
 ) {
     TopAppBar(
         title = {
-            Text(text = "Your Activities")
+            Text(text = "Tus Actividades")
         },
         navigationIcon = {
             IconButton(onClick = onNavIconClick) {
                 Icon(
                     imageVector = ImageVector.vectorResource(id = R.drawable.ic_arrow_backward),
-                    contentDescription = "Navigate back"
+                    contentDescription = "Ir atrás"
                 )
             }
         },
@@ -128,12 +128,12 @@ private fun ScreenTopAppBar(
                     onClick = { isDropDownExpended = !isDropDownExpended },
                 ) {
                     Text(
-                        text = "Sort by ",
+                        text = "Ordenar por ",
                         style = MaterialTheme.typography.labelLarge
                     )
                     Icon(
                         imageVector = Icons.Default.ArrowDropDown,
-                        contentDescription = "sort by"
+                        contentDescription = "Ordenar por"
                     )
                 }
                 DropDownList(
@@ -206,7 +206,7 @@ private fun RunCardItemPreview() {
         Run(
             img = BitmapFactory.decodeResource(
                 LocalContext.current.resources,
-                R.drawable.running_boy
+                R.drawable.running_total_user
             )
         )
     }

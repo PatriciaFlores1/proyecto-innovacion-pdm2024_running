@@ -183,7 +183,7 @@ private fun RunItemPrev() {
         run = Run(
             img = BitmapFactory.decodeResource(
                 LocalContext.current.resources,
-                R.drawable.running_boy
+                R.drawable.running_total_user
             ),
             timestamp = Date(),
             avgSpeedInKMH = 13.56f,

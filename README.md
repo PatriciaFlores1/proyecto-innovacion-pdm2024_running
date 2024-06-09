@@ -1,9 +1,6 @@
-# RunTrack
+# RUNNING
 
-RunTrack is a Fitness Tracking app utilizing modern Android technologies, including
-Jetpack Compose, MVVM architecture, and Google Maps API. The app allows users to
-track their running activities, displaying real-time routes on an interactive map
-while storing essential statistics using Room database.
+TEMA 7: Desarrolla una aplicación que utilice el GPS para rastrear las carreras de los usuarios y proporcionar retroalimentación en tiempo real sobre su rendimiento. La aplicación puede ofrecer consejos de entrenamiento, establecer metas personalizadas y crear rutas de carrera óptimas basadas en la ubicación del usuario y sus objetivos.
 
 ## Features
 1. Live tracking of running activity using GPS.
@@ -18,13 +15,6 @@ while storing essential statistics using Room database.
 7. Paging3 integration.
 8. Dynamic color support in dark and light theme.
 
-## Screenshot
-
-|                                                                                                                          |                                                                                                                           |
-|--------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| ![runtrack_home_ss](https://github.com/sDevPrem/run-track/assets/130966261/1e7828dc-555f-49a6-92aa-c7caea944cb2)         | ![runtrack_live_tracking_ss](https://github.com/sDevPrem/run-track/assets/130966261/4cd52d04-7745-484b-b5be-f6b2c0c72f71) |
-| ![runtrack_running_info_ss](https://github.com/sDevPrem/run-track/assets/130966261/b684d4a5-e443-4413-a832-0f63992fe89c) | ![runtrack_profile_ss](https://github.com/sDevPrem/run-track/assets/130966261/bfa0db6b-7ad6-4b22-abcf-d6f6393178f1)       |
-
 ## Package Structure
 
 * `core`
@@ -38,39 +28,6 @@ while storing essential statistics using Room database.
     * `theme`: Material3 theme.
     * `utils`: UI utility classes and common components.
 * `utils`: Utility class used across the app.
-
-## Build With
-
-[Kotlin](https://kotlinlang.org/):
-As the programming language.
-
-[Jetpack Compose](https://developer.android.com/jetpack/compose) :
-To build UI.
-
-[Jetpack Navigation](https://developer.android.com/jetpack/compose/navigation) :
-For navigation between screens and deep linking.
-
-[Room](https://developer.android.com/jetpack/androidx/releases/room) :
-To store and manage running statistics.
-
-[Google Maps API](https://developers.google.com/maps/documentation/android-sdk) :
-To track user's running activity such as speed, distance and path on the map.
-
-[Hilt](https://developer.android.com/training/dependency-injection/hilt-android) :
-For injecting dependencies.
-
-[Preferences DataStore](https://developer.android.com/topic/libraries/architecture/datastore) :
-To store user related data.
-
-[Coil](https://coil-kt.github.io/coil/compose/) :
-To load image asynchronously.
-
-## Architecture
-
-This app follows MVVM architecture, Uni Directional Flow (UDF) pattern and Single architecture
-pattern.
-HLD of tracking architecture is shown in the below image:
-![tracking_architecture](https://github.com/sDevPrem/run-track/assets/130966261/932e9df7-cf34-4902-aa84-73a6431ca236)
 
 ## Installation
 

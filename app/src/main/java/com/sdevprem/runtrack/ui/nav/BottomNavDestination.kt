@@ -16,7 +16,7 @@ sealed class BottomNavDestination(
     @Composable
     fun getIconVector() = ImageVector.vectorResource(icon)
 
-    object Home : BottomNavDestination(route = "home", icon = R.drawable.ic_menu) {
+    object Home : BottomNavDestination(route = "Inicio", icon = R.drawable.ic_menu) {
 
         fun navigateToOnBoardingScreen(navController: NavController) {
             navController.navigate(OnBoardingDestination.route)
@@ -26,16 +26,16 @@ sealed class BottomNavDestination(
             navController.navigate(RunStats.route)
         }
 
-        object RecentRun : Destination("recent_run") {
+        object RecentRun : Destination("Carrera reciente") {
             fun navigateToRunningHistoryScreen(navController: NavController) {
                 navController.navigate(RunningHistory.route)
             }
         }
 
-        object RunningHistory : Destination("running_history")
+        object RunningHistory : Destination("Historial")
 
     }
 
-    object Profile : BottomNavDestination(route = "profile", icon = R.drawable.ic_profile)
+    object Profile : BottomNavDestination(route = "Perfil", icon = R.drawable.ic_profile)
 
 }

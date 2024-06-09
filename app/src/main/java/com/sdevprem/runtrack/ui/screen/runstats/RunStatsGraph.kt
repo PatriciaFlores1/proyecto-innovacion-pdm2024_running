@@ -100,7 +100,7 @@ private fun RunStatsGraph(
     statisticsToShow: RunStatsUiState.Statistic,
     modifier: Modifier = Modifier,
 ) {
-    val graphPrimaryColor = MaterialTheme.colorScheme.primary
+    val graphPrimaryColor = MaterialTheme.colorScheme.onBackground
     val extraStoreKey = remember { ExtraStore.Key<List<Date>>() }
     val modelProducer = remember { CartesianChartModelProducer.build() }
     val dateList = remember(dateRange) {

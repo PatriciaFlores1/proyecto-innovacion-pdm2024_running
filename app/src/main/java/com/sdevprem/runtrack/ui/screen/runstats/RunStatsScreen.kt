@@ -93,7 +93,7 @@ private fun RunStatsContent(
                 .padding(16.dp)
         ) {
             Text(
-                text = "Weekly Report",
+                text = "Informe semanal",
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier
                     .padding(bottom = 8.dp)
@@ -124,13 +124,13 @@ private fun RunStatsContent(
 private fun TopBar(navigateUp: () -> Unit) {
     TopAppBar(
         title = {
-            Text(text = "Statistics")
+            Text(text = "Tu estadística")
         },
         navigationIcon = {
             IconButton(onClick = navigateUp) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
-                    contentDescription = "Back"
+                    contentDescription = "Regresar"
                 )
             }
         }
@@ -156,7 +156,7 @@ private fun StatisticFilter(
                     AnimatedVisibility(it == selectedStatistic) {
                         Icon(
                             imageVector = Icons.Default.Done,
-                            contentDescription = "selected Filter",
+                            contentDescription = "Seleccione un filtro",
                         )
                     }
                 },
@@ -199,7 +199,7 @@ private fun DateRangeCard(
             IconButton(onClick = decrementDateRange) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
-                    contentDescription = "previous week",
+                    contentDescription = "Semana anterior",
                     tint = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
@@ -216,7 +216,7 @@ private fun DateRangeCard(
             ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
-                    contentDescription = "next week",
+                    contentDescription = "siguiente semana",
                     tint = if (canIncrementDate)
                         MaterialTheme.colorScheme.onSurfaceVariant
                     else LocalContentColor.current

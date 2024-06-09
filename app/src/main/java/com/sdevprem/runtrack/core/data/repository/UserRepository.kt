@@ -18,11 +18,11 @@ class UserRepository @Inject constructor(
 ) {
 
     companion object {
-        val USER_NAME = stringPreferencesKey("user_name")
-        val USER_GENDER = stringPreferencesKey("user_gender")
-        val USER_WEIGHT_IN_KG = floatPreferencesKey("user_weight_in_kg")
-        val USER_WEEKLY_GOAL_IN_KM = floatPreferencesKey("user_weekly_goal_in_km")
-        val USER_IMG_URI = stringPreferencesKey("user_img_uri")
+        val USER_NAME = stringPreferencesKey("nombre_usuario")
+        val USER_GENDER = stringPreferencesKey("genero_usuario")
+        val USER_WEIGHT_IN_KG = floatPreferencesKey("kilogramos_usuario")
+        val USER_WEEKLY_GOAL_IN_KM = floatPreferencesKey("kilimetros_usuario")
+        val USER_IMG_URI = stringPreferencesKey("foto_usuario")
     }
 
     val user = dataStore.data.map {

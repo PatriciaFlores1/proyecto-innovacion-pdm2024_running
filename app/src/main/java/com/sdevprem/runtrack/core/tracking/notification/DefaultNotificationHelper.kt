@@ -23,8 +23,8 @@ class DefaultNotificationHelper @Inject constructor(
 ) : NotificationHelper {
 
     companion object {
-        private const val TRACKING_NOTIFICATION_CHANNEL_ID = "tracking_notification"
-        private const val TRACKING_NOTIFICATION_CHANNEL_NAME = "Run Tracking Status"
+        private const val TRACKING_NOTIFICATION_CHANNEL_ID = "seguimiento_notificación"
+        private const val TRACKING_NOTIFICATION_CHANNEL_NAME = "Estado de seguimiento"
     }
 
     private val intentToRunScreen = TaskStackBuilder.create(context).run {
@@ -44,10 +44,10 @@ class DefaultNotificationHelper @Inject constructor(
             context,
             TRACKING_NOTIFICATION_CHANNEL_ID
         )
-            .setSmallIcon(R.drawable.running_boy)
+            .setSmallIcon(R.drawable.ic_run)
             .setAutoCancel(false)
             .setOngoing(true)
-            .setContentTitle("Running Time")
+            .setContentTitle("Tiempo corriendo")
             .setContentText("00:00:00")
             .setContentIntent(intentToRunScreen)
 
@@ -68,7 +68,7 @@ class DefaultNotificationHelper @Inject constructor(
     private fun getTrackingNotificationAction(isTracking: Boolean): NotificationCompat.Action {
         return NotificationCompat.Action(
             if (isTracking) R.drawable.ic_pause else R.drawable.ic_play,
-            if (isTracking) "Pause" else "Resume",
+            if (isTracking) "Pausa" else "Resumen",
             PendingIntent.getService(
                 context,
                 2234,

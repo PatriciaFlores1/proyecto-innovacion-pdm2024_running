@@ -82,7 +82,7 @@ fun TopBarProfile(
             ) {
                 Icon(
                     imageVector = Icons.Default.Close,
-                    contentDescription = "Cancel Editing",
+                    contentDescription = "Cancelar edición",
                     tint = MaterialTheme.colorScheme.onPrimary
                 )
             }
@@ -96,10 +96,10 @@ fun TopBarProfile(
         ) {
             Icon(
                 imageVector = if (!isEditMode)
-                    ImageVector.vectorResource(id = R.drawable.ic_edit)
+                    ImageVector.vectorResource(id = R.drawable.baseline_edit_24)
                 else
                     Icons.Default.Done,
-                contentDescription = "Settings",
+                contentDescription = "Ajustes",
                 tint = MaterialTheme.colorScheme.onPrimary
             )
         }
@@ -138,13 +138,13 @@ private fun TopBarProfileContent(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Profile",
+            text = "Perfil del usuario",
             style = MaterialTheme.typography.titleSmall,
             color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier
         )
 
-        Spacer(modifier = Modifier.size(24.dp))
+        Spacer(modifier = Modifier.size(50.dp))
 
         Box {
 
@@ -152,7 +152,7 @@ private fun TopBarProfileContent(
                 imgUri = user.imgUri,
                 gender = user.gender,
                 modifier = Modifier
-                    .size(84.dp)
+                    .size(120.dp)
                     .clip(CircleShape)
             )
 
@@ -172,13 +172,13 @@ private fun TopBarProfileContent(
                     },
                     modifier = Modifier
                         .background(
-                            color = MaterialTheme.colorScheme.tertiaryContainer,
+                            color = MaterialTheme.colorScheme.surfaceVariant,
                             shape = CircleShape
                         )
                 ) {
                     Icon(
-                        imageVector = ImageVector.vectorResource(id = R.drawable.ic_edit),
-                        contentDescription = "Change Photo",
+                        imageVector = ImageVector.vectorResource(id = R.drawable.baseline_edit_24),
+                        contentDescription = "Cambiar su foto",
                         tint = MaterialTheme.colorScheme.onTertiaryContainer,
                         modifier = Modifier
                             .size(16.dp)
@@ -186,14 +186,13 @@ private fun TopBarProfileContent(
                 }
             }
         }
-        Spacer(modifier = Modifier.size(12.dp))
+        Spacer(modifier = Modifier.size(20.dp))
 
         val userNameStyle = MaterialTheme.typography.titleMedium.copy(
             fontWeight = FontWeight.SemiBold,
             color = MaterialTheme.colorScheme.onPrimary,
             textAlign = TextAlign.Center
         )
-
         if (!isEditMode)
             Text(
                 text = user.name,
@@ -208,7 +207,7 @@ private fun TopBarProfileContent(
                     .focusRequester(userNameFocusRequester)
                     .wrapContentHeight()
                     .width(200.dp)
-                    .padding(bottom = 4.dp)
+                    .padding(bottom = 8.dp)
                     .bottomBorder(1.dp, MaterialTheme.colorScheme.onPrimary),
                 maxLines = 1,
                 singleLine = true,
@@ -228,7 +227,7 @@ private fun TopBarProfileContent(
                 )
             ) {
                 Text(
-                    text = "Remove Picture",
+                    text = "Quitar imagen",
                     style = MaterialTheme.typography.labelMedium
                 )
             }

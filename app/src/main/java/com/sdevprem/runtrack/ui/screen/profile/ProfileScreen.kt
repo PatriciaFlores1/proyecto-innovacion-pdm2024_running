@@ -90,28 +90,13 @@ private fun ProfileScreenContent(
                 Column(
                     verticalArrangement = Arrangement.Center,
                     modifier = Modifier
-                        .padding(horizontal = 24.dp)
-                ) {
-                    SettingsItem(
-                        img = painterResource(id = R.drawable.ic_raising_hand),
-                        title = "Personal Parameter"
-                    )
-                    SettingsItem(
-                        img = painterResource(id = R.drawable.ic_trophy),
-                        title = "Achievements"
-                    )
-                    SettingsItem(
-                        img = painterResource(id = R.drawable.ic_gear),
-                        title = "Settings"
-                    )
-                    SettingsItem(
-                        img = painterResource(id = R.drawable.ic_telephone_receiver),
-                        title = "Our Contact",
-                        showDivider = false
-                    )
+                        .padding(horizontal = 0.dp)
+                )
+                {
+                    TotalProgressCard(state = profileScreenState)
                 }
             }
-            Spacer(modifier = Modifier.size(bottomPadding + 8.dp))
+            Spacer(modifier = Modifier.size(bottomPadding + 0.dp))
         }
     }
 }
@@ -143,8 +128,8 @@ private fun TopBar(
                 isEditMode = state.isEditMode,
                 profileEditActions = profileEditActions
             )
-            Spacer(modifier = Modifier.size(32.dp))
-            TotalProgressCard(state = state)
+            Spacer(modifier = Modifier.size(85.dp))
+//            TotalProgressCard(state = state)
         }
     }
 
@@ -165,7 +150,7 @@ private fun TotalProgressCard(
                 .fillMaxWidth(),
         ) {
             Text(
-                text = "Total Progress",
+                text = "Su progreso total es",
                 style = MaterialTheme.typography.labelLarge.copy(
                     color = MaterialTheme.colorScheme.onSurface,
                     fontWeight = FontWeight.SemiBold
@@ -174,8 +159,8 @@ private fun TotalProgressCard(
                     .weight(1f)
             )
             Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_arrow_forward),
-                contentDescription = "More info",
+                imageVector = ImageVector.vectorResource(id = R.drawable.ic_profile),
+                contentDescription = "Más información",
                 modifier = Modifier
                     .size(16.dp)
                     .align(Alignment.CenterVertically),
@@ -198,7 +183,7 @@ private fun TotalProgressCard(
         ) {
             RunningStatsItem(
                 modifier = Modifier,
-                painter = painterResource(id = R.drawable.running_boy),
+                painter = painterResource(id = R.drawable.running_man),
                 unit = "km",
                 value = state.totalDistanceInKm.toString()
             )
@@ -214,7 +199,7 @@ private fun TotalProgressCard(
             )
             RunningStatsItem(
                 modifier = Modifier,
-                painter = painterResource(id = R.drawable.stopwatch),
+                painter = painterResource(id = R.drawable.baseline_lock_clock_24),
                 unit = "hr",
                 value = state.totalDurationInHr.toString()
             )
@@ -230,7 +215,7 @@ private fun TotalProgressCard(
             )
             RunningStatsItem(
                 modifier = Modifier,
-                painter = painterResource(id = R.drawable.fire),
+                painter = painterResource(id = R.drawable.fuego_icono),
                 unit = "kcal",
                 value = state.totalCaloriesBurnt.toString()
             )

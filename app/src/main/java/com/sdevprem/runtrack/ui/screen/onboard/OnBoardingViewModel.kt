@@ -44,7 +44,7 @@ class OnBoardingViewModel @Inject constructor(
 
     fun saveUser(navigate: () -> Unit) {
         if (!user.value.isUserValid()) {
-            _errorMsg.value = "Enter Valid Data"
+            _errorMsg.value = "Datos inválidos"
             return
         }
         viewModelScope.launch {

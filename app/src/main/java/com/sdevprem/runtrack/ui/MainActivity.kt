@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppTheme {
                 PermissionRequester()
-                // A surface container using the 'background' color from the theme
+                // Un contenedor de superficie usando el color 'background' del tema
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -96,7 +96,7 @@ class MainActivity : ComponentActivity() {
         if (requestCode == LocationUtils.LOCATION_ENABLE_REQUEST_CODE && resultCode != Activity.RESULT_OK) {
             Toast.makeText(
                 this,
-                "Please enable GPS to get proper running statistics.",
+                "Habilita el GPS para obtener estadísticas de carrera correctas.",
                 Toast.LENGTH_LONG
             ).show()
         }

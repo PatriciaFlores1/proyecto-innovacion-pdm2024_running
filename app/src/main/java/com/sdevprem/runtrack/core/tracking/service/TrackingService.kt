@@ -15,9 +15,9 @@ import javax.inject.Inject
 class TrackingService : LifecycleService() {
 
     companion object {
-        const val ACTION_PAUSE_TRACKING = "action_pause_tracking"
-        const val ACTION_RESUME_TRACKING = "action_resume_tracking"
-        const val ACTION_START_SERVICE = "action_start_service"
+        const val ACTION_PAUSE_TRACKING = "acción_pausa_seguimiento"
+        const val ACTION_RESUME_TRACKING = "acción_reanudar_seguimiento"
+        const val ACTION_START_SERVICE = "iniciar_servicio_de_accion"
     }
 
     @Inject
